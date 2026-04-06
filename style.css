@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  transition: 0.3s;
+}
+
+/* LIGHT THEME */
+body.light {
+  background: #ffffff;
+  color: #111;
+}
+
+/* DARK THEME */
+body.dark {
+  background: radial-gradient(circle at 20% 20%, #1a1a2e, #0f0f1a 60%);
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.name span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-200px);
+  animation: drop 0.8s ease-out forwards;
+  text-shadow: 0 0 10px rgba(0,150,255,0.7);
+}
+
+@keyframes drop {
+  0% { opacity:0; transform: translateY(-200px);}
+  60% { opacity:1; transform: translateY(20px);}
+  100% { transform: translateY(0);}
+}
+
+/* DELAY */
+.name span:nth-child(1){animation-delay:0s}
+.name span:nth-child(2){animation-delay:0.1s}
+.name span:nth-child(3){animation-delay:0.2s}
+.name span:nth-child(4){animation-delay:0.3s}
+.name span:nth-child(5){animation-delay:0.4s}
+.name span:nth-child(6){animation-delay:0.5s}
+.name span:nth-child(7){animation-delay:0.6s}
+.name span:nth-child(8){animation-delay:0.7s}
+.name span:nth-child(9){animation-delay:0.8s}
+.name span:nth-child(10){animation-delay:0.9s}
+.name span:nth-child(11){animation-delay:1s}
+.name span:nth-child(12){animation-delay:1.1s}
+
+/* BUTTONS */
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 50px;
+  text-align: center;
+}
+
+/* PROJECTS */
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
