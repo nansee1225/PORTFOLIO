@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nansee Gupta</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Orbit Skills</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* Container */
+.orbit-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+/* Center Name */
+.center-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 32px;
+    font-weight: 700;
+
+    background: linear-gradient(45deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #a78bfa;
+
+    width: 0;
+    animation: typing 3s steps(20) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 240px; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Orbit Circle (VISIBLE NOW) */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 12s linear infinite;
+}
+
+/* Skills */
+.skill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    font-size: 16px;
+}
+
+/* Position skills */
+.skill:nth-child(1) { transform: rotate(0deg) translateX(175px); }
+.skill:nth-child(2) { transform: rotate(72deg) translateX(175px); }
+.skill:nth-child(3) { transform: rotate(144deg) translateX(175px); }
+.skill:nth-child(4) { transform: rotate(216deg) translateX(175px); }
+.skill:nth-child(5) { transform: rotate(288deg) translateX(175px); }
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+</style>
+
 </head>
-<body class="dark">
+<body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <h2 class="logo">Nansee</h2>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="theme-toggle">🌙</button>
-  </nav>
+<div class="orbit-container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1 class="name">
-      <span>N</span><span>a</span><span>n</span><span>s</span><span>e</span><span>e</span>
-      <span>&nbsp;</span>
-      <span>G</span><span>u</span><span>p</span><span>t</span><span>a</span>
-    </h1>
-    <p class="subtitle">Frontend Developer | AI Enthusiast</p>
-    <div class="buttons">
-      <button>View Projects</button>
-      <button>Contact Me</button>
+    <!-- Name -->
+    <div class="center-name">
+        Nansee Gupta
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I build modern, interactive web apps with clean UI and smooth UX.</p>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-container">
-      <div class="card">Project 1</div>
-      <div class="card">Project 2</div>
-      <div class="card">Project 3</div>
+    <!-- Orbit with visible path -->
+    <div class="orbit">
+        <div class="skill">C/C++</div>
+        <div class="skill">Python</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">SQL</div>
     </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section>
-    <h2>Skills</h2>
-    <p>HTML • CSS • JavaScript • React • Node.js</p>
-  </section>
+</div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>GitHub: github.com/yourprofile</p>
-  </section>
-
-  <script src="script.js"></script>
 </body>
 </html>
