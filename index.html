@@ -2,29 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Orbit Skills</title>
+<title>Galaxy Skills</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    background: #0f172a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: radial-gradient(circle at center, #0f172a, #020617);
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 
-/* Container */
-.orbit-container {
-    position: relative;
-    width: 450px;
-    height: 450px;
+/* 🌟 Stars */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-/* Center Name */
+.stars::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+        50px 100px white, 200px 300px white, 400px 150px white,
+        600px 500px white, 800px 200px white, 1000px 400px white,
+        1200px 100px white, 300px 600px white, 700px 700px white,
+        900px 100px white, 1100px 300px white;
+}
+
+/* Container */
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ✍️ Center Name */
 .center-name {
     position: absolute;
     top: 50%;
@@ -32,7 +53,7 @@ body {
     transform: translate(-50%, -50%);
     
     font-size: 32px;
-    font-weight: 700;
+    font-weight: bold;
 
     background: linear-gradient(45deg, #38bdf8, #a78bfa);
     -webkit-background-clip: text;
@@ -41,8 +62,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid #a78bfa;
-
     width: 0;
+
     animation: typing 3s steps(20) forwards, blink 0.7s infinite;
 }
 
@@ -55,18 +76,20 @@ body {
     50% { border-color: transparent; }
 }
 
-/* Orbit Circle (VISIBLE NOW) */
+/* 🌍 Orbit Base */
 .orbit {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 350px;
-    height: 350px;
-    border: 1px dashed rgba(255,255,255,0.2);
     border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,0.15);
     transform: translate(-50%, -50%);
-    animation: rotate 12s linear infinite;
 }
+
+/* Orbit Sizes */
+.orbit1 { width: 200px; height: 200px; animation: rotate 8s linear infinite; }
+.orbit2 { width: 300px; height: 300px; animation: rotate 14s linear infinite; }
+.orbit3 { width: 400px; height: 400px; animation: rotate 20s linear infinite; }
 
 /* Skills */
 .skill {
@@ -74,16 +97,25 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: 0 0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-/* Position skills */
-.skill:nth-child(1) { transform: rotate(0deg) translateX(175px); }
-.skill:nth-child(2) { transform: rotate(72deg) translateX(175px); }
-.skill:nth-child(3) { transform: rotate(144deg) translateX(175px); }
-.skill:nth-child(4) { transform: rotate(216deg) translateX(175px); }
-.skill:nth-child(5) { transform: rotate(288deg) translateX(175px); }
+/* Orbit 1 Skills */
+.orbit1 .skill:nth-child(1) { transform: rotate(0deg) translateX(100px); }
+.orbit1 .skill:nth-child(2) { transform: rotate(180deg) translateX(100px); }
 
+/* Orbit 2 Skills */
+.orbit2 .skill:nth-child(1) { transform: rotate(0deg) translateX(150px); }
+.orbit2 .skill:nth-child(2) { transform: rotate(120deg) translateX(150px); }
+.orbit2 .skill:nth-child(3) { transform: rotate(240deg) translateX(150px); }
+
+/* Orbit 3 Skills */
+.orbit3 .skill:nth-child(1) { transform: rotate(0deg) translateX(200px); }
+.orbit3 .skill:nth-child(2) { transform: rotate(90deg) translateX(200px); }
+.orbit3 .skill:nth-child(3) { transform: rotate(180deg) translateX(200px); }
+.orbit3 .skill:nth-child(4) { transform: rotate(270deg) translateX(200px); }
+
+/* Rotation */
 @keyframes rotate {
     from { transform: translate(-50%, -50%) rotate(0deg); }
     to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -93,20 +125,32 @@ body {
 </head>
 <body>
 
-<div class="orbit-container">
+<div class="stars"></div>
+
+<div class="container">
 
     <!-- Name -->
-    <div class="center-name">
-        Nansee Gupta
-    </div>
+    <div class="center-name">Nansee Gupta</div>
 
-    <!-- Orbit with visible path -->
-    <div class="orbit">
+    <!-- Orbit 1 -->
+    <div class="orbit orbit1">
         <div class="skill">C/C++</div>
         <div class="skill">Python</div>
+    </div>
+
+    <!-- Orbit 2 -->
+    <div class="orbit orbit2">
         <div class="skill">HTML</div>
         <div class="skill">CSS</div>
         <div class="skill">SQL</div>
+    </div>
+
+    <!-- Orbit 3 -->
+    <div class="orbit orbit3">
+        <div class="skill">DSA</div>
+        <div class="skill">Git</div>
+        <div class="skill">JS</div>
+        <div class="skill">AI</div>
     </div>
 
 </div>
